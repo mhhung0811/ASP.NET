@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QUANLYSANPHAMBAI4" Class="QuanlySanPhamDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.CATALOG" Member="CATALOGs">
+    <Type Name="CATALOG">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CATALOGCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CATALOGNAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Association Name="CATALOG_PRODUCT" Member="PRODUCTs" ThisKey="ID" OtherKey="CATALOGID" Type="PRODUCT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PRODUCT" Member="PRODUCTs">
+    <Type Name="PRODUCT">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CATALOGID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRODUCTCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PRODUCTNAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PICTURE" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UNITPRICE" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="CATALOG_PRODUCT" Member="CATALOG" ThisKey="CATALOGID" OtherKey="ID" Type="CATALOG" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

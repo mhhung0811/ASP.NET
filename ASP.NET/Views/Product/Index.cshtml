@@ -1,0 +1,61 @@
+﻿@model IEnumerable<BaiTap4___NET.Models.PRODUCT>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CATALOGID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODUCTCODE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODUCTNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PICTURE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UNITPRICE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CATALOGID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODUCTCODE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODUCTNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PICTURE)
+            <img src="~/Pictures/@Url.Content(item.PICTURE)"
+                 alt="image"
+                 width="100"
+                 height="100" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UNITPRICE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
